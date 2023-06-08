@@ -137,6 +137,10 @@ if has make; then
   alias m=make
 fi
 
+if has kubectl; then
+  alias k=kubectl
+fi
+
 if has terraform; then
   alias t=terraform
 fi
