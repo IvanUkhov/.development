@@ -61,10 +61,17 @@ fi
 # Editor
 # ------------------------------------------------------------------------------
 
-export EDITOR=vim
-export VISUAL=vim
+if has nvim; then
+  export EDITOR=nvim
+  export VISUAL=nvim
+else
+  export EDITOR=vim
+  export VISUAL=vim
+fi
 
-if is darwin && has mvim; then
+if is darwin && has neovide; then
+  alias v=neovide
+elif is darwin && has mvim; then
   alias v=mvim
 else
   alias v=vim
