@@ -107,6 +107,13 @@ if has git; then
   alias gs='git status'
 fi
 
+if has git; then
+  function gbp {
+    git branch | egrep -v "(^\*|main|staging)" | xargs git branch -D
+    git remote prune origin
+  }
+fi
+
 if has git && has grepdiff; then
   function gape {
     git diff -U0 $2 \
