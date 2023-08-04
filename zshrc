@@ -109,26 +109,23 @@ fi
 
 if has git; then
   function git-branch-prune {
-    set -Eeuo pipefail
-    git branch | egrep -v "(^\*|main|staging)" | xargs git branch -D
-    git remote prune origin
+    git branch | egrep -v "(^\*|main|staging)" | xargs git branch -D \
+      && git remote prune origin
   }
   alias gbp=git-branch-prune
 
   function git-merge-main {
-    set -Eeuo pipefail
     local branch
     branch=$(git rev-parse --abbrev-ref HEAD)
-    git checkout main
-    git merge ${branch}
-    git-branch-prune
+    git checkout main \
+      && git merge "${branch}" \
+      && git-branch-prune
   }
   alias gmm=git-merge-main
 fi
 
 if has git && has grepdiff; then
   function git-add-patch-regular-expression {
-    set -Eeuo pipefail
     git diff -U0 $2 \
       | grepdiff -E $1 --output-matching=hunk \
       | git apply --cached --unidiff-zero
