@@ -141,7 +141,7 @@ fi
 
 if has cargo; then
   alias c=cargo
-  alias cob='cargo bench --all-features'
+  alias cob='cargo +nightly bench --all-features'
   alias cod='cargo doc --all-features --open'
   alias cof='cargo fmt'
   alias col='cargo clippy --all-features'
