@@ -81,6 +81,8 @@ fi
 # Versioning
 # ------------------------------------------------------------------------------
 
+compdef -d git
+
 function git_prompt {
   if has git; then
     branch=$(git symbolic-ref HEAD 2> /dev/null | cut -d'/' -f3)
