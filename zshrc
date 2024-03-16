@@ -146,6 +146,7 @@ if has cargo; then
   alias cof='cargo fmt'
   alias col='cargo clippy --all-features'
   alias cot='cargo test --all-features'
+  alias cou='cargo update'
 fi
 
 if has docker; then
