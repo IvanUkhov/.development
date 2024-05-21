@@ -64,6 +64,8 @@ fi
 if has nvim; then
   export EDITOR=nvim
   export VISUAL=nvim
+  export NEOVIDE_FORK=1
+  export NEOVIDE_TABS=0
 else
   export EDITOR=vim
   export VISUAL=vim
