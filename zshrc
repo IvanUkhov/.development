@@ -156,7 +156,7 @@ if has cargo; then
   alias cod='cargo doc --all-features --open'
   alias cof='cargo fmt'
   alias col='cargo clippy --all-features'
-  alias cot='cargo test --all-features'
+  alias cot='cargo test --all-features -- --include-ignored'
   alias cou='cargo update'
 fi
 
