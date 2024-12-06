@@ -192,11 +192,6 @@ if has brew; then
   alias bu='brew update && brew upgrade && brew cleanup'
 fi
 
-if has open; then
-  alias o=open
-  alias .='open .'
-fi
-
 if is linux; then
   export LS_COLORS='di=35:ln=36:so=32:pi=33:ex=31:bd=34:cd=34:su=0:sg=0:tw=0:ow=0:'
   alias ls='ls --color=auto'
