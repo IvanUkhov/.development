@@ -31,6 +31,13 @@ setopt appendhistory
 setopt incappendhistory
 setopt sharehistory
 
+bindkey -v
+bindkey -v '^?' backward-delete-char
+
+autoload edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
+
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
@@ -42,11 +49,6 @@ else
   bindkey '^[OA' up-line-or-beginning-search
   bindkey '^[OB' down-line-or-beginning-search
 fi
-
-bindkey '[C' forward-word
-bindkey '[D' backward-word
-bindkey '^[a' beginning-of-line
-bindkey '^[e' end-of-line
 
 zstyle :completion::complete:-command-:: tag-order local-directories -
 
