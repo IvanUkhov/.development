@@ -160,6 +160,8 @@ if has cargo; then
   alias col='cargo clippy --all-features'
   alias cot='cargo test --all-features -- --include-ignored'
   alias cou='cargo update'
+
+  export CARGO_NET_GIT_FETCH_WITH_CLI=true
 fi
 
 if has docker; then
