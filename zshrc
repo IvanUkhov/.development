@@ -129,14 +129,16 @@ if has git; then
   }
   alias gbp=git-branch-prune
 
-  function git-merge-main {
-    local branch
-    branch=$(git rev-parse --abbrev-ref HEAD)
-    git checkout main \
-      && git merge "${branch}" \
+  function git-branch-merge {
+    local base=${1}
+    local head
+    head=$(git rev-parse --abbrev-ref HEAD)
+    git checkout "${base}" \
+      && git merge "${head}" \
       && git-branch-prune
   }
-  alias gmm=git-merge-main
+  alias gmm='git-branch-merge main'
+  alias gms='git-branch-merge staging'
 fi
 
 if has git && has grepdiff; then
